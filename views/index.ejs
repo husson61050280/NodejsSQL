@@ -1,0 +1,73 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+      <h3 align="center">Top 3 Hospital of high Patient</h3>
+      <div class="row mt-5 mb-5">
+        <% hospital_Top.forEach(function(hospital_Top, i) { %>
+      <div class="col-sm-4">
+        <div class="card text-white  mb-3 <%= i == 0 ? "bg-danger" : i == 1 ? "bg-warning" : "bg-primary" %>"  style="max-width: 18rem;">
+          <div class="card-header"><%=hospital_Top.id%></div>
+          <div class="card-body">
+            <h5 class="card-title"><%=hospital_Top.name%></h5>
+            <h3 class="card-title"><%=hospital_Top.num%></h3>
+          </div>
+      </div>
+      </div>
+        <%})%>
+    </div>
+    <!-- TOP 3 CARD  -->
+      <div class="row ">
+            <div class="col-sm-8 ">
+                <h3 align="center">All Patient</h3>
+                <table class="table mt-5">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Hospital_ID</th>
+                      </tr>
+                    </thead>
+                    <% patients.forEach(function(patient) { %>
+                      <tr>
+                        <th><%=patient.id%></th>
+                        <td><%=patient.firstname%></td>
+                        <td><%=patient.lastname%></td>
+                        <td><%=patient.age%></td>
+                        <td><%=patient.status%></td>
+                        <td><%=patient.hospital_id%></td>
+                      </tr>
+                      <% })%>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-sm-4">
+                <h3 align="center">All Hospital</h3>
+                <table class="table mt-5">
+                    <thead  align="center" >
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Hospital Name</th>
+                        <th scope="col">ALL Patents (Positive & Negative)</th>
+
+                      </tr>
+                    </thead>
+                    <tbody align="center">
+                        <% hospitals.forEach(function(hospital) { %>
+                      <tr>
+                        <th><%=hospital.id%></th>
+                        <td><%=hospital.name%></td>
+                        <td><%=hospital.num%></td>
+                      </tr>
+                      <% })%>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        
+
+        
+    </div>
+<%- include('include/footer') %>
